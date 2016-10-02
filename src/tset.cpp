@@ -88,6 +88,7 @@ TSet TSet::operator-(const int Elem) // разность с элементом
 {
 	/*TSet perwe(BitField & TSet(~Elem));
 	return perwe;*/
+	return 1;
 
 }
 

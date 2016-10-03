@@ -79,17 +79,32 @@ TSet TSet::operator+(const TSet &s) // объединение
 
 TSet TSet::operator+(const int Elem) // объединение с элементом
 {
+	if ((Elem > -1) && (Elem < MaxPower))
+	{
+	
+		InsElem(Elem);
+			return *this;
+		}
+	else throw "error";
 
-	TSet Obwe(BitField | TSet(Elem));
-	return Obwe;
+	
 }
 
 TSet TSet::operator-(const int Elem) // разность с элементом
 {
-	/*TSet perwe(BitField & TSet(~Elem));
-	return perwe;*/
-	return 1;
-
+	if ((Elem > -1) && (Elem < MaxPower))
+	{
+		int t;
+		TSet temp(MaxPower);
+		for (int i = 0; i < MaxPower; i++) {
+			t = IsMember(i);
+			if (t == 1)
+				temp.InsElem(i);
+		}
+		temp.DelElem(Elem);
+		return temp;
+	}
+	else throw "error";
 }
 
 TSet TSet::operator*(const TSet &s) // пересечение
